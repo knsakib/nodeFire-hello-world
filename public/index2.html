@@ -1,0 +1,51 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="appmodule">
+<head>
+
+
+  <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBeDeMAuT1WpRZ3T8bB2dC2zTfSiumyeQg",
+      authDomain: "knsakib.firebaseapp.com",
+      databaseURL: "https://knsakib.firebaseio.com",
+      storageBucket: "project-5135657072435335305.appspot.com",
+    };
+    firebase.initializeApp(config);
+
+
+    
+    firebase.database.enableLogging(true);
+
+    var dbRef=firebase.database().ref('redlight');
+
+    dbRef.on('value', function(snap){
+    data=snap.val();
+
+    document.getElementById("showData").innerText=data;
+
+    });
+
+
+
+  </script>
+
+
+
+</head>
+
+<body>
+test
+<div id="showData">
+
+
+
+</div>
+
+
+
+</body>
+</html>
